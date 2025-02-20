@@ -9,8 +9,8 @@ Currently, two official plugins are available:
 
 # How to Run
 
-- Clone repository → git clone <URL_REPO>
-- Masuk ke folder proyek → cd nama-folder-proyek
+- Clone repository → git clone https://github.com/bilalfauzy/frontend-user-management.git
+- Masuk ke folder proyek → cd frontend-user-management
 - Install dependencies → npm install
 - Jalankan proyek → npm run dev
 
