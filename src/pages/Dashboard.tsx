@@ -11,6 +11,7 @@ import {
   Row,
   Table,
 } from "react-bootstrap";
+import { FaEye, FaPen, FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -41,7 +42,7 @@ const Dashboard: React.FC = () => {
     <Container>
       <h4>Dashboard User</h4>
       <Row className="d-flex justify-content-between align-items-center mb-3">
-        <Col xs={12} md={6} lg={4}>
+        <Col xs={6} md={6} lg={4}>
           <Form.Control
             type="text"
             placeholder="Search by name or email"
@@ -56,12 +57,11 @@ const Dashboard: React.FC = () => {
         </Col>
       </Row>
 
-      <Table striped bordered hover variant="light">
+      <Table striped borderless hover variant="light" responsive>
         <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Username</th>
             <th>Email</th>
             <th>Company</th>
             <th colSpan={3} className="text-center">
@@ -72,25 +72,28 @@ const Dashboard: React.FC = () => {
         <tbody>
           {filteredUsers.map((user: any) => (
             <tr key={user.id} className="bg-base-200">
-              <td className="p-2">{user.id}</td>
-              <td className="p-2">{user.name}</td>
-              <td className="p-2">{user.username}</td>
-              <td className="p-2">{user.email}</td>
-              <td className="p-2">{user.company.name}</td>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.company.name}</td>
               <td>
                 <Link to={`/view/${user.id}`}>
-                  <Button variant="secondary">View</Button>
+                  <Button variant="info">
+                    <FaEye color="white" />
+                  </Button>
                 </Link>
               </td>
 
               <td>
                 <Link to={`/edit/${user.id}`}>
-                  <Button btn-primary>Edit</Button>
+                  <Button variant="primary">
+                    <FaPen />
+                  </Button>
                 </Link>
               </td>
               <td className="p-2">
                 <Button variant="danger" onClick={() => handleDelete(user.id)}>
-                  Delete
+                  <FaTrash />
                 </Button>
               </td>
             </tr>
